@@ -42,7 +42,7 @@ app.controller('authCtrl', function ($scope, $rootScope, $routeParams, $location
     
         $scope.upDate = function (customer) {
         var ncust = customer ;
-        ucust = {} ;
+        var ucust = {} ;
         ucust.email = ncust.email;
         ucust.password = ncust.password;
         ucust.company =  ncust.company ;    
@@ -105,7 +105,14 @@ app.controller('listsCtrl', ['$scope', '$rootScope', '$routeParams', '$location'
      $scope.newtalk = [];
     } ;
 //***************************    
-    
+ $scope. dateDiffInDays = function(a, b) {
+   var _MS_PER_DAY = 1000 * 60 * 60 * 24;
+  // Discard the time and time-zone information.
+  var utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  var utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+  return Math.floor( Math.abs(utc2 - utc1) / _MS_PER_DAY);
+};
     $scope.getlist = function(days) {
         
     if ($scope.listtype == 'Job') {
@@ -128,6 +135,19 @@ app.controller('listsCtrl', ['$scope', '$rootScope', '$routeParams', '$location'
          //data.replace(/\\/g, "");
          $scope.newtalk = JSON.parse( $scope.newtalktemp) ;
          $scope.lines = $scope.newtalk.length ;
+         if ( $scope.listtype != 'Inv' ) {
+             for ( var x = 0 ; x <$scope.lines ; x++ ) {
+                 
+                var crntdate = 0;
+                if ( $scope.newtalk[x].invoice_on > " "){
+                   crntdate =  new Date( $scope.newtalk[x].invoice_on.substring(0,10)); 
+                } else {
+                    crntdate =  new Date();
+                }
+               var bkdate = new Date( $scope.newtalk[x].datebooked.substring(0,10));
+               $scope.newtalk[x].age = $scope.dateDiffInDays(bkdate, crntdate);
+             }
+         }
      });
      } ;
 
@@ -194,6 +214,11 @@ var prt = 0.00 ;
 var crt = 0.00 ;
 var prc = 0 ;
 var crc = 0 ;
+var pri = 0 ; 
+var cri = 0;
+var ccn = 0 ; 
+var pcn = 0 ;      
+      
 var dayarray = [] ;
 var currentmonth = [];
 var lastmonth = [] ;
