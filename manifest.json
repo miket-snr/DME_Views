@@ -1,0 +1,35 @@
+{
+	"name": "DME Jobcards",
+	"short_name": "DME-Jobs",
+	"icons": [
+{
+"src": "./images/logo.png",
+"type": "image/png",
+"sizes": "150x50"
+},
+{
+"src": "./images/log-80x20.png",
+"type": "image/png",
+"sizes": "80x20"
+},
+{
+"src": "./images/logo-med.png",
+"type": "image/png",
+"sizes": "192x192"
+},
+{
+"src": "./images/log-big.png",
+"type": "image/png",
+"sizes": "512x512"
+}
+],
+"start_url": "https://mikethomson.biz/jobcards/api/index.php",
+"scope": ".",
+"display": "standalone",
+"orientation": "portrait-primary",
+"background_color": "#fff",
+"theme_color": "#317EFB",
+"description": "A simple Account List.",
+"dir": "ltr",
+"lang": "en-US"
+}
