@@ -77,6 +77,14 @@ app.controller('listsCtrl', ['$scope', '$rootScope', '$routeParams', '$location'
     $scope.newtalktemp = "" ;
     $scope.filtertx = '';
      $scope.listtype = 'Job' ;
+     $scope.btn1year = "Past Year" ;
+     $scope.btn60 = "60Days" ;
+     $scope.btn30 = "30Days" ;
+     $scope.btn14 = "14Days" ;
+     $scope.btn7 = "7Days" ;
+     $scope.btn0 = "Yesterday" ;
+    
+     
 //***************************     
     $scope.getlisttype = function() {
      if ($scope.listtype == 'Job') {
@@ -87,8 +95,10 @@ app.controller('listsCtrl', ['$scope', '$rootScope', '$routeParams', '$location'
      } else {
               if ($scope.listtype == 'OpenJobs') {
          $scope.listtype = 'ClosedJobs' ;
+        
      } else {
-        $scope.listtype = 'Job' ;  
+         $scope.listtype = 'Job' ;  
+        
      } }
          
      }

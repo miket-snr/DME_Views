@@ -2,9 +2,12 @@
 <div class="page-content">
     <div class="row">
       <button type="button" ng-click="getlisttype()" class="btn btn-warning btn-xs">{{listtype}}</button> 
-      <button type="button" ng-click="getlist('365')" class="btn btn-primary btn-xs">Year </button>
-                    <button type="button" ng-click="getlist('30')" class="btn btn-primary btn-xs">30Days</button>
-                    <button type="button" ng-click="getlist('7')" class="btn btn-primary btn-xs">7Days</button>
+      <button type="button" ng-click="getlist('365')" class="btn btn-primary btn-xs">{{btn1year}} </button>
+      <button type="button" ng-click="getlist('60')" class="btn btn-primary btn-xs">{{btn60}}</button> 
+      <button type="button" ng-click="getlist('30')" class="btn btn-primary btn-xs">{{btn30}}</button> 
+      <button type="button" ng-click="getlist('14')" class="btn btn-primary btn-xs">{{btn14}}</button>
+      <button type="button" ng-click="getlist('7')" class="btn btn-primary btn-xs">{{btn7}}</button>
+      <button type="button" ng-click="getlist('1')" class="btn btn-primary btn-xs">{{btn0}}</button>
 
 <input type="text" ng-Model="filtertx" />               </div>
                 </div>
@@ -17,6 +20,7 @@
       <th>Customer</th>
       <th>Make</th>
       <th>Size</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +30,7 @@
         <td>{{x.customernumber}}</td>
         <td>{{x.make}}</td>
         <td>{{x.hp_kw}}</td>
+        <td>{{x.status}}</td>
     </tr>
   </tbody>
 </table>
