@@ -1,0 +1,55 @@
+
+<div class="page-content">
+    <div class="row">
+      <button type="button" ng-click="getlisttype()" class="btn btn-warning btn-xs">{{listtype}}</button> 
+      <button type="button" ng-click="getlist('365')" class="btn btn-primary btn-xs">Year </button>
+                    <button type="button" ng-click="getlist('30')" class="btn btn-primary btn-xs">30Days</button>
+                    <button type="button" ng-click="getlist('7')" class="btn btn-primary btn-xs">7Days</button>
+
+<input type="text" ng-Model="filtertx" />               </div>
+                </div>
+ <div class="row" ng-show="listtype != 'Inv'">            
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Jobno</th>
+      <th>Date</th>
+      <th>Customer</th>
+      <th>Make</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="x in newtalk | filter: filtertx  ">
+        <td>{{x.jobcardno}}</td>
+        <td>{{x.datebooked | str2date}}</td>
+        <td>{{x.customernumber}}</td>
+        <td>{{x.make}}</td>
+        <td>{{x.hp_kw}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="row"  ng-show="listtype =='Inv'">            
+  <table class="table">
+  <thead>
+    <tr>
+      <th>InvNo</th>
+      <th>Date</th>
+       <th>Customer</th>
+      <th>Nett (ex Vat)</th>
+     
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="x in newtalk | filter: filtertx  ">
+        <td>{{x.id}}</td>
+        <td>{{x.dateof | str2date}}</td>
+        <td>{{x.customer}}</td>
+        <td>{{x.grossexvat}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

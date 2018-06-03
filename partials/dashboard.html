@@ -1,0 +1,52 @@
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="#">Home</a>
+        </li>
+        <li class="active">Dashboard</li>
+    </ul>
+</div>
+<div class="page-content">
+        <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-10">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div ng-show="progress == 'none'" class="col-xs-3">
+                                        <img src="./images/downdollar.png" alt="Progress" > 
+                                    </div>
+                                    <div ng-show="progress != 'none'" class="col-xs-3">
+                                        <img src="./images/updollar.png" alt="Progress" > 
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <a href="#/dashboard">
+                                <div class="panel-footer">
+                                    <span class="pull-left "><h2>{{mtd | currency : 'R ' : 0 }}</h2>  vs <h2> {{lmtd | currency : 'R ' : 0}}</h2></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+        </div>
+    
+    <div class="row">
+        <div class="col-md-7">
+        <canvas id="line" class="chart chart-line" chart-data="data"
+        chart-labels="labels" chart-series="series" chart-options="options"
+        chart-dataset-override="datasetOverride" chart-click="onClick">
+        </canvas>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-md-7">
+        <canvas id="bar" class="chart chart-bar" chart-data="bardata"
+        chart-labels="labels" chart-series="barseries" chart-options="options"
+        chart-dataset-override="datasetOverride" chart-click="onClick">
+        </canvas>
+        </div>
+    </div>
+</div>
+<!-- /.page-content -->
